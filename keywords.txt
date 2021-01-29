@@ -1,0 +1,29 @@
+#######################################
+# Syntax Coloring Map For DFRobot_HX711_I2C
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DFRobot_HX711_I2C	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+readWeight	KEYWORD2
+addCommand	KEYWORD2
+getCalibration	KEYWORD2
+setCalibration	KEYWORD2
+setThreshold	KEYWORD2
+setCalWeight	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+
+HX711_I2C_ADDR	LITERAL1
+PASSWORD	LITERAL1
+BUTTON	LITERAL1
