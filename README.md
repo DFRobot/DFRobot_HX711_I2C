@@ -72,6 +72,23 @@ To use this library, first download the library file, paste it into the \Arduino
    * @param triWeight 
    */
   void  setCalWeight(uint16_t triWeight);
+  
+  /**
+   * @brief Start sensor calibration
+   */
+  void enableCal();
+  
+  /**
+   * @brief remove the peel
+   */
+  void peel();
+  
+  /**
+   * @brief Wait for sensor calibration to complete
+   * @return true The calibration completed
+   *         false The calibration is not complete
+   */
+  bool getCalFlag();
 ```
 
 ## Compatibility

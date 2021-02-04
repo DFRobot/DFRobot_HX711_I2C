@@ -36,12 +36,16 @@
 class DFRobot_HX711_I2C
 {
 public:
+  #define REG_CLEAR_REG_STATE       0x65     /*Get sensor raw data*/
   #define REG_DATA_GET_RAM_DATA       0x66     /*Get sensor raw data*/
   #define REG_DATA_GET_CALIBRATION    0x67     /*Gets the automatic calibration value*/
   #define REG_DATA_GET_PEEL_FLAG      0x69     /*Obtain peeling position*/
   #define REG_DATA_INIT_SENSOR        0x70     /*Module initialization*/
   #define REG_SET_CAL_THRESHOLD       0x71     /*Set the calibration trigger threshold*/
   #define REG_SET_TRIGGER_WEIGHT      0x72     /*Set calibration weight*/
+  
+  #define REG_CLICK_RST        0x73     /*Simulation of RST*/
+  #define REG_CLICK_CAL        0x74     /*Simulation of CAL*/
   /*!
    * @brief Constructor 
    * @param pWire I2c controller
@@ -86,6 +90,23 @@ public:
    * @param triWeight 
    */
   void  setCalWeight(uint16_t triWeight);
+  
+  /**
+   * @brief Start sensor calibration
+   */
+  void enableCal();
+  
+  /**
+   * @brief remove the peel
+   */
+  void peel();
+  
+  /**
+   * @brief Wait for sensor calibration to complete
+   * @return true The calibration completed
+   *         false The calibration is not complete
+   */
+  bool getCalFlag();
 private:
   long getValue();
   uint8_t peelFlag();

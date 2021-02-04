@@ -34,6 +34,20 @@ void setup() {
   // Set the trigger threshold (G) for automatic calibration of the weight sensor module. When only the weight of the object on the scale is greater than this value, the module will start the calibration process
   // This value cannot be greater than the calibration weight of the setCalWeight() setting
   MyScale.setThreshold(50);
+  
+  
+  delay(2000);
+  //Start sensor calibration
+  MyScale.enableCal();
+  long time1 = millis();
+  //Wait for sensor calibration to complete
+  while(!MyScale.getCalFlag()){
+       delay(1000);
+       if((millis()-time1) > 7000){ 
+          Serial.println("Calibration failed, no weight was detected on the scale");
+          delay(2000);
+       }
+  }
   // Obtain the calibration value. The accurate calibration value can be obtained after the calibration operation is completed
   Serial.print("the calibration value of the sensor is: ");
   Serial.println(MyScale.getCalibration());

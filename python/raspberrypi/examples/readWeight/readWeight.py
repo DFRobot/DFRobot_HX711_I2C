@@ -31,7 +31,9 @@ hx711.begin()
 
 print("start\r\n")
 #Manually set the calibration values
-hx711.setCalibration(2242.0)
+hx711.setCalibration(2210.0)
+#peel
+hx711.peel();
 while(1):
   # Get the weight of the object
   data = hx711.readWeight(10)

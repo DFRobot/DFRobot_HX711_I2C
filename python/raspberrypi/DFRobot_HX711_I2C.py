@@ -58,10 +58,11 @@ class DFRobot_HX711_I2C(object):
     if ppFlag == 1:
       self._offset = self.average(times)
     elif ppFlag == 2:
-      self._calibration = self.getCalibration()
+      b = self.getCalibration()
+      self._calibration = b[0]
     #Serial.println("pppppppppppppppppppppp----------------------");
     #print(value);
-    #print(self._offset);
+    print(self._calibration)
     return ((value - self._offset)/self._calibration) 
 
    
@@ -140,6 +141,19 @@ class DFRobot_HX711_I2C(object):
     if(times == 0):
        times =1
     return  sum/times
+  def peel(self):
+    self._offset = self.average(15)
+    self.write_data(0x73)
+  def enableCal(self):
+    time.sleep(0.1)
+    self.write_data(0x74)
+    time.sleep(0.1)
+  def getCalFlag(self):
+    ppFlag = self.peelFlag()
+    if ppFlag == 2:
+      return True
+    else:
+      return False
   def write_data(self, data):
     self.i2cbus.write_byte(self._addr ,data)
     

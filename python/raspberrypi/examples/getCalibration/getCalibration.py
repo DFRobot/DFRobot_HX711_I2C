@@ -34,6 +34,10 @@ hx711.setThreshold(50)
 # Set the calibration weight when the weight sensor module is automatically calibrated (g)
 hx711.setCalWeight(100)
 
+hx711.enableCal()
+while hx711.getCalFlag() != 1: 
+  time.sleep(1)
+
 print("the calibration value of the sensor is: ")
 # Obtain the calibration value. The accurate calibration value can be obtained after the calibration operation is completed
 calibration = hx711.getCalibration()

@@ -29,6 +29,8 @@ void setup() {
   }
   //Manually set the calibration values
   MyScale.setCalibration(2236.f);
+  //remove the peel
+  MyScale.peel();
 }
 
 void loop() {

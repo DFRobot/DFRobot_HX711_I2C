@@ -22,6 +22,7 @@ int DFRobot_HX711_I2C::begin(void){
     DBG("\r\n");
     Wire.beginTransmission(_address);
     _pWire->write(REG_DATA_INIT_SENSOR);
+    _pWire->write(REG_CLEAR_REG_STATE);
     if(Wire.endTransmission() == 0) {
       DBG("\r\n");
      _offset = average(10);
@@ -45,6 +46,25 @@ float DFRobot_HX711_I2C::readWeight(uint8_t times){
   }
   //Serial.println(value);
   return (((float)value- _offset)/_calibration) ;
+}
+
+bool DFRobot_HX711_I2C::getCalFlag(){
+
+  uint8_t ppFlag = peelFlag();
+  if(ppFlag == 2) {
+     return true;
+  } else {
+     return false;
+  }
+}
+void DFRobot_HX711_I2C::enableCal(){
+    uint8_t data =0;
+    writeReg(REG_CLICK_CAL,&data,1);
+}
+void DFRobot_HX711_I2C::peel(){
+    _offset = average();
+    uint8_t data =0;
+    writeReg(REG_CLICK_RST,&data,1);
 }
 long DFRobot_HX711_I2C::average(uint8_t times){
   long sum = 0;
@@ -75,11 +95,10 @@ float DFRobot_HX711_I2C::getCalibration()
 
 void DFRobot_HX711_I2C::setCalibration(float value)
 {
-  
   _calibration = value;
-  //_offset = average(10);
-
 }
+
+
 
 uint8_t DFRobot_HX711_I2C::peelFlag(){
 

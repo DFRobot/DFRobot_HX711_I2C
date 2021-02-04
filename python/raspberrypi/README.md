@@ -32,38 +32,53 @@ Provide an raspberrypi library to get weight by reading data from HX711.
   '''
     @brief Module initialization
   '''
-  def begin():
+  begin():
   
   '''
     @brief Get the weight of the object
     @param times: Take the average from the number of measurements
     @return  The object weight, (g)
   '''
-  def readWeight(self ,times):
+  readWeight(self ,times)
 
   '''
     @brief Obtain the automatic calibration value of weight sensor module
     @return Automatic calibration value
   '''
-  def getCalibration(self):
+  getCalibration(self)
 
   '''
     @brief Manually set the automatic calibration value
     @param times: the value of Calibration
   '''
-  def setCalibration(self,value):
+  setCalibration(self,value)
   
   '''
     @brief Set calibration weight
     @param times: The calibration weight(g)
   '''
-  def setCalWeight(self,triWeight):
+  setCalWeight(self,triWeight)
   
   '''
     @brief Set calibration threshold value, when the calibration weight is greater than this value, sensor calibration will begin
     @param times: The threshold value(g)
   '''
-  def setThreshold(self,threshold):
+  setThreshold(self,threshold)
+  
+  '''
+    @brief remove the peel
+  '''
+  peel(self)
+  
+  '''
+    @brief Start sensor calibration
+  '''
+  enableCal(self)
+  
+  '''
+    @brief Wait for sensor calibration to complete
+  '''
+  getCalFlag(self)
 ```
 
 ## Compatibility
