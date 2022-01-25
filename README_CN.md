@@ -1,8 +1,8 @@
 # DFRobot_BT401
 - [English Version](./README.md)
 
-HX711 is a 24-bit A / D converter chip designed for high-precision electronic scales.<br>
-This example is suitable for HX711 sensor and read data through Arduino.<br>
+HX711是一款为高精度电子秤设计的24位a / D转换芯片。
+本示例适用于HX711传感器，通过Arduino读取数据。
 
 
 ![Product Image](./resources/images/KIT0176.png)
