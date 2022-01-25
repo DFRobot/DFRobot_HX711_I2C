@@ -6,11 +6,10 @@
  * @n 3. After the completion of calibration, the indicator flashes 3 times within one second to indicate the completion of calibration
  * @N 4. If 100G items are not placed, the indicator light will be extinguished after 5 seconds. This calibration is invalid
  * @copyright Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence The MIT License (MIT)
+ * @License The MIT License (MIT)
  * @author [fengli](li.feng@dfrobot.com)
  * @ version V1.0
  * @date 2020-12-26
- * @get from https://www.dfrobot.com
  * @https://github.com/DFRobot/DFRobot_HX711_I2C
  */
 #include <DFRobot_HX711_I2C.h>

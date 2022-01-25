@@ -1,12 +1,14 @@
-# HX711-raspberrypi
+# DFRobot_HX711_I2C
+- [中文版](./README_CN.md)
+
 HX711 is a 24-bit A / D converter chip designed for high-precision electronic scales.<br>
-This example is suitable for HX711 sensor and read data through raspberrypi.<br>
+This example is suitable for HX711 sensor and read data through Arduino.<br>
 
 
-## DFRobot_HX711_I2C Library for raspberrypi
----------------------------------------------------------
+![Product Image](../../resources/images/KIT0176.png)
 
-Provide an raspberrypi library to get weight by reading data from HX711.
+## Product Link (https://www.dfrobot.com/product-2289.html)
+    KIT0176: I2C 1Kg Weight Sensor Kit - HX711
 
 ## Table of Contents
 
@@ -29,56 +31,79 @@ Provide an raspberrypi library to get weight by reading data from HX711.
 
 ```python
   
+  def begin(self):
+  '''!
+    @fn begin
+    @brief init function
+    @return return 1 if initialization succeeds, otherwise return non-zero and error code.
   '''
-    @brief Module initialization
-  '''
-  begin():
   
-  '''
+  def read_weight(self,times):
+  '''!
+    @fn read_weight
     @brief Get the weight of the object
-    @param times: Take the average from the number of measurements
-    @return  The object weight, (g)
+    @param times Take the average several times
+    @return return the read weight value, unit: g
   '''
-  readWeight(self ,times)
+  
+  def get_calibration(self):
+  '''!
+    @fn get_calibration
+    @brief get calibration value 
+    @return return the read calibration value
+  '''
 
-  '''
-    @brief Obtain the automatic calibration value of weight sensor module
-    @return Automatic calibration value
-  '''
-  getCalibration(self)
 
+  def set_calibration(self ,value):
+  '''!
+    @fn set_calibration
+    @brief Set calibration value
+    @param value the calibration value
   '''
-    @brief Manually set the automatic calibration value
-    @param times: the value of Calibration
+
+  def peel_flag(self):
   '''
-  setCalibration(self,value)
+    @fn peel_flag
+    @brief Wait for sensor calibration to complete
+    @return Result 
+    @retval true The calibration completed
+    @retval false The calibration is not complete
+  '''
   
+  def set_cal_weight(self,triWeight):
+  '''!
+    @fn set_cal_weight
+    @brief Set the calibration weight when the weight sensor module is automatically calibrated(g)
+    @param triWeight   Weight
   '''
-    @brief Set calibration weight
-    @param times: The calibration weight(g)
-  '''
-  setCalWeight(self,triWeight)
   
+  def set_threshold(self,threshold):
+  '''!
+    @fn set_threshold
+    @brief Set the trigger threshold when the weight sensor module is automatically calibrated(g)
+    @param threshold threshold
   '''
-    @brief Set calibration threshold value, when the calibration weight is greater than this value, sensor calibration will begin
-    @param times: The threshold value(g)
-  '''
-  setThreshold(self,threshold)
-  
-  '''
+
+  def peel(self):
+  '''!
+    @fn peel
     @brief remove the peel
   '''
-  peel(self)
   
-  '''
+  def enable_cal(self):
+  '''!
+    @fn enable_cal
     @brief Start sensor calibration
   '''
-  enableCal(self)
-  
-  '''
+
+  def get_cal_flag(self):
+  '''!
+    @fn get_cal_flag
     @brief Wait for sensor calibration to complete
+    @return Result 
+    @retval true The calibration completed
+    @retval false The calibration is not complete
   '''
-  getCalFlag(self)
 ```
 
 ## Compatibility
@@ -91,10 +116,8 @@ Raspberry pi 4       |      √       |              |             |
 
 ## History
 
-- data 2020-12-31
-- version V1.0
-
-
+- 2020/12/31 - Version 1.0.0 released.
 ## Credits
 
-Written by(li.feng@dfrobot.com), 2020. (Welcome to our [website](https://www.dfrobot.com/))
+Written by fengli(li.feng@dfrobot.com), 2020.12.31 (Welcome to our [website](https://www.dfrobot.com/))
+

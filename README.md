@@ -1,12 +1,14 @@
 # HX711-Arduino
+- [中文版](./README_CN.md)
+
 HX711 is a 24-bit A / D converter chip designed for high-precision electronic scales.<br>
 This example is suitable for HX711 sensor and read data through Arduino.<br>
 
 
-## DFRobot_HX711_I2C Library for Arduino
----------------------------------------------------------
+![Product Image](./resources/images/KIT0176.png)
 
-Provide an Arduino library to get weight by reading data from HX711.
+## Product Link (https://www.dfrobot.com/product-2289.html)
+    KIT0176: I2C 1Kg Weight Sensor Kit - HX711
 
 ## Table of Contents
 
@@ -29,64 +31,66 @@ To use this library, first download the library file, paste it into the \Arduino
 
 ```C++
   /*!
-   * @brief Constructor 
-   * @param pWire I2c controller
-   * @param addr  I2C address(0x64/0x65/0x660x67)
-   */
-  DFRobot_HX711_I2C(TwoWire * pWire = &Wire,uint8_t addr = HX711_I2C_ADDR);
-  
-  /**
+   * @fn begin
    * @brief init function
-   * @return Return 1 if initialization succeeds, otherwise return non-zero and error code.
+   * @return return 1 if initialization succeeds, otherwise return non-zero and error code.
    */
   int begin(void);
   
-  /**
+  /*!
+   * @fn readWeight
    * @brief Get the weight of the object
    * @param times Take the average several times
-   * @return Return the read weight value, unit: g
+   * @return return the read weight value, unit: g
    */
   float readWeight(uint8_t times = 12);
   
-  /**
+  /*!
+   * @fn getCalibration
    * @brief get calibration value 
    * @return return the read calibration value
    */
   float getCalibration();
 
-  /**
+  /*!
+   * @fn setCalibration
    * @brief Set calibration value
-   * @param value
-   * @return return the read calibration value
+   * @param value the calibration value
    */
   void  setCalibration(float value);
 
-  /**
+  /*!
+   * @fn setThreshold
    * @brief Set the trigger threshold when the weight sensor module is automatically calibrated(g)
-   * @param threshold
+   * @param threshold threshold
    */
   void  setThreshold(uint16_t threshold);
   
-  /**
+  /*!
+   * @fn setCalWeight
    * @brief Set the calibration weight when the weight sensor module is automatically calibrated(g)
-   * @param triWeight 
+   * @param triWeight   Weight
    */
   void  setCalWeight(uint16_t triWeight);
   
-  /**
+  /*!
+   * @fn enableCal
    * @brief Start sensor calibration
    */
   void enableCal();
   
-  /**
+  /*!
+   * @fn peel
    * @brief remove the peel
    */
   void peel();
   
-  /**
+  /*!
+   * @fn getCalFlag
    * @brief Wait for sensor calibration to complete
-   * @return true The calibration completed
-   *         false The calibration is not complete
+   * @return Result 
+   * @retval true The calibration completed
+   * @retval false The calibration is not complete
    */
   bool getCalFlag();
 ```
@@ -105,10 +109,7 @@ microbit        |      √       |              |             |
 
 ## History
 
-- data 2020-12-31
-- version V1.0
-
-
+- 2020/12/31 - Version 1.0.0 released.
 ## Credits
 
-Written by(li.feng@dfrobot.com), 2020. (Welcome to our [website](https://www.dfrobot.com/))
+Written by fengli(li.feng@dfrobot.com), 2020.12.31 (Welcome to our [website](https://www.dfrobot.com/))

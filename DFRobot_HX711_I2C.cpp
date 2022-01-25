@@ -2,11 +2,10 @@
  * @file DFRobot_HX711_I2C.cpp
  * @brief Define the basic structure of class DFRobot_HX711_I2C 
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence     The MIT License (MIT)
+ * @License     The MIT License (MIT)
  * @author [fengli](li.feng@dfrobot.com)
  * @version  V1.0
  * @date  2020-12-26
- * @get from https://www.dfrobot.com
  * @https://github.com/DFRobot/DFRobot_HX711_I2C
  */
 #include "DFRobot_HX711_I2C.h"

@@ -1,14 +1,13 @@
 # -*- coding:utf-8 -*-
 """
-  @file readWeight.py
+  @file read_weight.py
   @brief Get the weight of the object, press the RST button on the module, the 
   @n program will automatically remove the skin
   @copyright  Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
-  @licence     The MIT License (MIT)
+  @License     The MIT License (MIT)
   @author [fengli](li.feng@dfrobot.com)
   @version  V1.0
   @date  2020-12-26
-  @get from https://www.dfrobot.com
   @https://github.com/DFRobot/DFRobot_HX711_I2C
 """
 import sys
@@ -31,12 +30,12 @@ hx711.begin()
 
 print("start\r\n")
 #Manually set the calibration values
-hx711.setCalibration(2210.0)
+hx711.set_calibration(2210.0)
 #peel
 hx711.peel();
 while(1):
   # Get the weight of the object
-  data = hx711.readWeight(10)
+  data = hx711.read_weight(10)
   print('weight is %.1f g' % data)
   time.sleep(2)
   #hx711.peelFlag();
