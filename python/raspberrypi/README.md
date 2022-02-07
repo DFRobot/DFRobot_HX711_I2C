@@ -115,7 +115,7 @@ MCU                | Work Well    | Work Wrong   | Untested    | Remarks
 Raspberry pi 3       |      √       |              |             | 
 Raspberry pi 4       |      √       |              |             | 
 
-* Python 版本
+* Python Version
 
 | Python  | Work Well | Work Wrong | Untested | Remarks |
 | ------- | :--: | :----: | :----: | ---- |
