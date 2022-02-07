@@ -1,4 +1,4 @@
-# HX711-Arduino
+# DFRobot_HX711_I2C
 - [中文版](./README_CN.md)
 
 HX711 is a 24-bit A / D converter chip designed for high-precision electronic scales.<br>

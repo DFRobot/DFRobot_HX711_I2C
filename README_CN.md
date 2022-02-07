@@ -1,4 +1,4 @@
-# DFRobot_BT401
+# DFRobot_HX711_I2C
 - [English Version](./README.md)
 
 HX711是一款为高精度电子秤设计的24位a / D转换芯片。
@@ -23,7 +23,7 @@ HX711是一款为高精度电子秤设计的24位a / D转换芯片。
 
 ## 库安装
 
-To use this library, first download the library file, paste it into the \Arduino\libraries directory, then open the examples folder and run the demo in the folder.
+要使用这个库，首先下载库文件，将其粘贴到\Arduino\libraries目录中，然后打开示例文件夹并在文件夹中运行演示程序。
 
 ## 方法
 ```C++

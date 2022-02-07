@@ -25,8 +25,10 @@ Provide an raspberrypi library to get weight by reading data from HX711.
 
 ## Installation
 
-
-
+To use the library, first download it to Raspberry Pi, then open the routines folder. To execute a routine demox.py, type Python demox.py on the command line. For example, the readweight. py routine, you need to type:
+```python
+python readWeight.py
+```
 ## Methods
 
 ```python
@@ -113,6 +115,12 @@ MCU                | Work Well    | Work Wrong   | Untested    | Remarks
 Raspberry pi 3       |      √       |              |             | 
 Raspberry pi 4       |      √       |              |             | 
 
+* Python 版本
+
+| Python  | Work Well | Work Wrong | Untested | Remarks |
+| ------- | :--: | :----: | :----: | ---- |
+| Python2 |  √   |        |        |      |
+| Python3 |  √   |        |        |      |
 
 ## History
 
