@@ -23,25 +23,22 @@
 #define DBG(...)
 #endif
 
-#define HX711_I2C_ADDR  (0x64)  /*sensor IIC address*/
+#define HX711_I2C_ADDR  (0x64)  sensor IIC address*/
 
-//#define ERR_OK             0      //ok
-//#define ERR_DATA_BUS      -1      //error in data bus
-//#define ERR_IC_VERSION    -2      //chip version mismatch
 
 class DFRobot_HX711_I2C
 {
 public:
-  #define REG_CLEAR_REG_STATE       0x65     /*Get sensor raw data*/
-  #define REG_DATA_GET_RAM_DATA       0x66     /*Get sensor raw data*/
-  #define REG_DATA_GET_CALIBRATION    0x67     /*Gets the automatic calibration value*/
-  #define REG_DATA_GET_PEEL_FLAG      0x69     /*Obtain peeling position*/
-  #define REG_DATA_INIT_SENSOR        0x70     /*Module initialization*/
-  #define REG_SET_CAL_THRESHOLD       0x71     /*Set the calibration trigger threshold*/
-  #define REG_SET_TRIGGER_WEIGHT      0x72     /*Set calibration weight*/
+  #define REG_CLEAR_REG_STATE       0x65     ///<Get sensor raw data
+  #define REG_DATA_GET_RAM_DATA       0x66     ///<Get sensor raw data
+  #define REG_DATA_GET_CALIBRATION    0x67     ///<Gets the automatic calibration value
+  #define REG_DATA_GET_PEEL_FLAG      0x69     ///<Obtain peeling position
+  #define REG_DATA_INIT_SENSOR        0x70     ///<Module initialization
+  #define REG_SET_CAL_THRESHOLD       0x71     ///<Set the calibration trigger threshold
+  #define REG_SET_TRIGGER_WEIGHT      0x72     ///<Set calibration weight
   
-  #define REG_CLICK_RST        0x73     /*Simulation of RST*/
-  #define REG_CLICK_CAL        0x74     /*Simulation of CAL*/
+  #define REG_CLICK_RST        0x73     ///<Simulation of RST
+  #define REG_CLICK_CAL        0x74     ///<Simulation of CAL
   /*!
    * @fn DFRobot_HX711_I2C
    * @brief Constructor 
