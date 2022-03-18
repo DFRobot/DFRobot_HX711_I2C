@@ -23,7 +23,7 @@
 #define DBG(...)
 #endif
 
-#define HX711_I2C_ADDR  (0x64)  sensor IIC address
+#define HX711_I2C_ADDR  (0x64)  ///<sensor IIC address
 
 
 class DFRobot_HX711_I2C
