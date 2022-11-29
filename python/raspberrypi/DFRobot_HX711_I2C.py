@@ -41,22 +41,22 @@ class DFRobot_HX711_I2C(object):
     self.idle =    0
 
   def begin(self):
-  '''!
-    @fn begin
-    @brief init function
-    @return return 1 if initialization succeeds, otherwise return non-zero and error code.
-  '''
+    '''!
+      @fn begin
+      @brief init function
+      @return return 1 if initialization succeeds, otherwise return non-zero and error code.
+    '''
     self._offset = self.average(20)
     time.sleep(0.05)
     
 
   def read_weight(self,times):
-  '''!
-    @fn read_weight
-    @brief Get the weight of the object
-    @param times Take the average several times
-    @return return the read weight value, unit: g
-  '''
+    '''!
+      @fn read_weight
+      @brief Get the weight of the object
+      @param times Take the average several times
+      @return return the read weight value, unit: g
+    '''
     value = self.average(times)
     time.sleep(0.05)
     ppFlag = self.peel_flag()
@@ -73,11 +73,11 @@ class DFRobot_HX711_I2C(object):
    
 
   def get_calibration(self):
-  '''!
-    @fn get_calibration
-    @brief get calibration value 
-    @return return the read calibration value
-  '''
+      '''!
+        @fn get_calibration
+        @brief get calibration value 
+        @return return the read calibration value
+      '''
       data = self.read_reg(self.REG_DATA_GET_CALIBRATION,4);
       aa= bytearray(data) 
       
@@ -85,11 +85,11 @@ class DFRobot_HX711_I2C(object):
 
 
   def set_calibration(self ,value):
-  '''!
-    @fn set_calibration
-    @brief Set calibration value
-    @param value the calibration value
-  '''
+      '''!
+        @fn set_calibration
+        @brief Set calibration value
+        @param value the calibration value
+      '''
       self._offset = self.average(15)
       self._calibration = value
   '''
@@ -120,11 +120,11 @@ class DFRobot_HX711_I2C(object):
       return value^0x800000
 
   def set_cal_weight(self,triWeight):
-  '''!
-    @fn set_cal_weight
-    @brief Set the calibration weight when the weight sensor module is automatically calibrated(g)
-    @param triWeight   Weight
-  '''
+   '''!
+     @fn set_cal_weight
+     @brief Set the calibration weight when the weight sensor module is automatically calibrated(g)
+     @param triWeight   Weight
+   '''
    txData = [0,0]
    txData[0] = triWeight >> 8
    txData[1] = triWeight & 0xFF
@@ -135,11 +135,11 @@ class DFRobot_HX711_I2C(object):
   
 
   def set_threshold(self,threshold):
-  '''!
-    @fn set_threshold
-    @brief Set the trigger threshold when the weight sensor module is automatically calibrated(g)
-    @param threshold threshold
-  '''
+   '''!
+     @fn set_threshold
+     @brief Set the trigger threshold when the weight sensor module is automatically calibrated(g)
+     @param threshold threshold
+   '''
    txData = [0,0]
    txData[0] = threshold >> 8
    txData[1] = threshold & 0xFF
@@ -149,30 +149,30 @@ class DFRobot_HX711_I2C(object):
    time.sleep(0.05)
 
   def peel(self):
-  '''!
-    @fn peel
-    @brief remove the peel
-  '''
+    '''!
+      @fn peel
+      @brief remove the peel
+    '''
     self._offset = self.average(15)
     self.write_data(0x73)
 
   def enable_cal(self):
-  '''!
-    @fn enable_cal
-    @brief Start sensor calibration
-  '''
+    '''!
+      @fn enable_cal
+      @brief Start sensor calibration
+    '''
     time.sleep(0.1)
     self.write_data(0x74)
     time.sleep(0.1)
 
   def get_cal_flag(self):
-  '''!
-    @fn get_cal_flag
-    @brief Wait for sensor calibration to complete
-    @return Result 
-    @retval true The calibration completed
-    @retval false The calibration is not complete
-  '''
+    '''!
+      @fn get_cal_flag
+      @brief Wait for sensor calibration to complete
+      @return Result 
+      @retval true The calibration completed
+      @retval false The calibration is not complete
+    '''
     ppFlag = self.peel_flag()
     if ppFlag == 2:
       return True
